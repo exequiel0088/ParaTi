@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Te Quiero</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #fff0f5;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    /* Texto que cae */
+    .te-quiero {
+      position: absolute;
+      top: -50px;
+      color: red; /* Rojo para los "Te quiero" */
+      font-size: 24px;
+      animation: caer 5s linear infinite;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes caer {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    /* Texto central en negro */
+    .mensaje-centro {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 36px;
+      color: black; /* Mensaje central en negro */
+      text-align: center;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mensaje-centro">Aquí está lo que le prometí ❤️</div>
+
+  <script>
+    function crearTeQuiero() {
+      const elemento = document.createElement("div");
+      elemento.classList.add("te-quiero");
+      elemento.textContent = "Te quiero";
+
+      const tamaño = Math.random() * 20 + 20; // Tamaño aleatorio entre 20px y 40px
+      elemento.style.fontSize = tamaño + "px";
+
+      elemento.style.left = Math.random() * window.innerWidth + "px";
+      elemento.style.animationDuration = (Math.random() * 3 + 3) + "s"; // duración entre 3 y 6 segundos
+
+      document.body.appendChild(elemento);
+
+      setTimeout(() => {
+        elemento.remove();
+      }, 6000); // Remover después de que caiga
+    }
+
+    setInterval(crearTeQuiero, 200); // Crea una nueva cada 200ms
+  </script>
+
+</body>
+</html>
+
+
