@@ -11,13 +11,14 @@
       font-family: 'Comic Sans MS', cursive, sans-serif;
     }
 
-    /* Texto que cae */
     .te-quiero {
       position: absolute;
       top: -50px;
       color: red;
       font-size: 24px;
-      animation: caer linear;
+      animation-name: caer;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
       user-select: none;
       pointer-events: none;
     }
@@ -29,7 +30,6 @@
       }
     }
 
-    /* Texto central en negro */
     .mensaje-centro {
       position: absolute;
       top: 50%;
@@ -45,10 +45,10 @@
 </head>
 <body>
 
-  <div class="mensaje-centro">Aquí está lo que le prometí ❤️</div>
+<div class="mensaje-centro">Aquí está lo que le prometí ❤️</div>
 
-  <script>
-    // Crear elementos "Te quiero" que caen
+<script>
+  window.onload = function() {
     function crearTeQuiero() {
       const elemento = document.createElement("div");
       elemento.className = "te-quiero";
@@ -66,9 +66,11 @@
       }, 6000);
     }
 
-    // Iniciar caída cada 200ms
     setInterval(crearTeQuiero, 200);
-  </script>
+  };
+</script>
 
 </body>
 </html>
+
+
