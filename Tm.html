@@ -15,9 +15,9 @@
     .te-quiero {
       position: absolute;
       top: -50px;
-      color: red; /* Rojo para los "Te quiero" */
+      color: red;
       font-size: 24px;
-      animation: caer 5s linear infinite;
+      animation: caer linear;
       user-select: none;
       pointer-events: none;
     }
@@ -36,7 +36,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 36px;
-      color: black; /* Mensaje central en negro */
+      color: black;
       text-align: center;
       font-weight: bold;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
@@ -48,28 +48,27 @@
   <div class="mensaje-centro">Aquí está lo que le prometí ❤️</div>
 
   <script>
+    // Crear elementos "Te quiero" que caen
     function crearTeQuiero() {
       const elemento = document.createElement("div");
-      elemento.classList.add("te-quiero");
+      elemento.className = "te-quiero";
       elemento.textContent = "Te quiero";
 
-      const tamaño = Math.random() * 20 + 20; // Tamaño aleatorio entre 20px y 40px
+      const tamaño = Math.random() * 20 + 20;
       elemento.style.fontSize = tamaño + "px";
-
       elemento.style.left = Math.random() * window.innerWidth + "px";
-      elemento.style.animationDuration = (Math.random() * 3 + 3) + "s"; // duración entre 3 y 6 segundos
+      elemento.style.animationDuration = (Math.random() * 3 + 3) + "s";
 
       document.body.appendChild(elemento);
 
       setTimeout(() => {
         elemento.remove();
-      }, 6000); // Remover después de que caiga
+      }, 6000);
     }
 
-    setInterval(crearTeQuiero, 200); // Crea una nueva cada 200ms
+    // Iniciar caída cada 200ms
+    setInterval(crearTeQuiero, 200);
   </script>
 
 </body>
 </html>
-
-
