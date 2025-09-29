@@ -48,7 +48,7 @@
 <div class="mensaje-centro">Aquí está lo que le prometí ❤️</div>
 
 <script>
-  window.onload = function() {
+  document.addEventListener("DOMContentLoaded", function() {
     function crearTeQuiero() {
       const elemento = document.createElement("div");
       elemento.className = "te-quiero";
@@ -56,21 +56,23 @@
 
       const tamaño = Math.random() * 20 + 20;
       elemento.style.fontSize = tamaño + "px";
-      elemento.style.left = Math.random() * window.innerWidth + "px";
-      elemento.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      elemento.style.left = Math.random() * (window.innerWidth - 50) + "px";
+
+      // Duración aleatoria entre 3 y 6 segundos
+      const duracion = Math.random() * 3 + 3;
+      elemento.style.animationDuration = duracion + "s";
 
       document.body.appendChild(elemento);
 
       setTimeout(() => {
         elemento.remove();
-      }, 6000);
+      }, duracion * 1000);
     }
 
+    // Crear un nuevo "Te quiero" cada 200ms
     setInterval(crearTeQuiero, 200);
-  };
+  });
 </script>
 
 </body>
 </html>
-
-
